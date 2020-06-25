@@ -29,8 +29,8 @@ RUN apt-get update && apt-get install -y \
     echo 'source activate base' >> /root/.bashrc && \
     echo 'export PS1="\[\e[35;1m\]\W:\[\e[37;1m\]~λ \[\e[0m\]"' >> /root/.bashrc
 
-ARG NB_USER=user
-ARG NB_UID=1020
+ARG NB_USER=user_nb
+ARG NB_UID=100
 ENV USER ${NB_USER}
 ENV NB_UID ${NB_UID}
 ENV HOME /home/${NB_USER}

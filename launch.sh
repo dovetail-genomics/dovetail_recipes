@@ -1,5 +1,5 @@
 #!/bin/bash
 
-conda init bash
+eval "$(conda shell.bash hook)"
 source ~/.bashrc
 conda activate drylab

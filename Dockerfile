@@ -23,9 +23,6 @@ WORKDIR /tmp
 RUN conda env create -f environment.yml -n drylab
 
 
-# Add convienence stuff
-ADD ops/vimconfig/ /root/.vim
-ADD ops/vimconfig/vimrc /root/.vimrc
 RUN apt-get update && apt-get install -y \
     vim && \
     useradd drylab && \

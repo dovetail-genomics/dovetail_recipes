@@ -49,4 +49,5 @@ USER ${NB_USER}
 WORKDIR ${HOME}
 
 ENV SHELL /bin/bash
+SHELL ["conda", "activate", "drylab", "/bin/bash", "-c"]
 #CMD ["/bin/bash"]

@@ -22,6 +22,7 @@ ADD environment.yml /tmp/environment.yml
 WORKDIR /tmp
 RUN conda env create -f environment.yml -n drylab
 
+RUN pip install cython jupyterlab
 
 RUN apt-get update && apt-get install -y \
     vim && \

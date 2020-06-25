@@ -40,6 +40,7 @@ RUN adduser --disabled-password \
     --gecos "Default user" \
     ${NB_USER}
 
+SHELL ["conda", "run", "-n", "drylab", "/bin/bash", "-c"]
 
 ADD . ${HOME}
 USER root
@@ -47,4 +48,5 @@ RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
 WORKDIR ${HOME}
 
+SHELL ["/bin/bash", "-c"]
 #CMD ["/bin/bash"]

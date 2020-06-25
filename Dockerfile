@@ -28,10 +28,24 @@ RUN apt-get update && apt-get install -y \
     useradd drylab && \
     echo 'source activate base' >> /root/.bashrc && \
     echo 'export PS1="\[\e[35;1m\]\W:\[\e[37;1m\]~λ \[\e[0m\]"' >> /root/.bashrc
-ENV USER="drylab"
+
+ARG NB_USER=user
+ARG NB_UID=1000
+ENV USER ${NB_USER}
+ENV NB_UID ${NB_UID}
+ENV HOME /home/${NB_USER}
+
+RUN adduser --disabled-password \
+    --gecos "Default user" \
+    --uid ${NB_UID} \
+    ${NB_USER}
 
 
+COPY . ${HOME}
+USER root
+RUN chown -R ${NB_UID} ${HOME}
+USER ${NB_USER}
 
 
-ENTRYPOINT ["/bin/bash", "-c"]
-CMD ["/bin/bash"]
+#ENTRYPOINT ["/bin/bash", "-c"]
+#CMD ["/bin/bash"]

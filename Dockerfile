@@ -26,8 +26,7 @@ RUN pip install cython jupyterlab
 
 RUN apt-get update && apt-get install -y \
     vim && \
-    useradd drylab && \
-    echo 'source activate base' >> /root/.bashrc && \
+    echo 'source activate drylab' >> /root/.bashrc && \
     echo 'export PS1="\[\e[35;1m\]\W:\[\e[37;1m\]~λ \[\e[0m\]"' >> /root/.bashrc
 
 ARG NB_USER=user_nb
@@ -40,7 +39,6 @@ RUN adduser --disabled-password \
     --gecos "Default user" \
     ${NB_USER}
 
-SHELL ["conda", "run", "-n", "drylab", "/bin/bash", "-c"]
 
 ADD . ${HOME}
 USER root
@@ -49,5 +47,4 @@ USER ${NB_USER}
 WORKDIR ${HOME}
 
 ENV SHELL /bin/bash
-SHELL ["conda", "activate", "drylab", "/bin/bash", "-c"]
 #CMD ["/bin/bash"]

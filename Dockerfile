@@ -47,5 +47,5 @@ RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
 WORKDIR ${HOME}
 
-#ENTRYPOINT ["/bin/bash", "-c"]
-#CMD ["/bin/bash"]
+ENTRYPOINT ["/bin/bash", "-c"]
+CMD ["/bin/bash"]

@@ -1,4 +1,4 @@
 #!/bin/bash
 
 conda init bash
-conda activate drylab
+source activate drylab

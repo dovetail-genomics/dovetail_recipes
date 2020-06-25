@@ -18,6 +18,7 @@ RUN apt-get update && apt-get install -y \
  samtools \
  bwa \
  default-jdk \
+ awscli \
 htop && rm -rf /var/lib/apt/lists/*
 
 # Use the environment.yml to create the conda environment.

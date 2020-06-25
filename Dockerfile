@@ -41,11 +41,11 @@ RUN adduser --disabled-password \
     ${NB_USER}
 
 
-COPY . ${HOME}
+ADD . ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
-
+WORKDIR ${HOME}
 
 #ENTRYPOINT ["/bin/bash", "-c"]
 #CMD ["/bin/bash"]

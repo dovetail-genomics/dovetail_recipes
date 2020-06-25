@@ -30,7 +30,7 @@ RUN apt-get update && apt-get install -y \
     echo 'export PS1="\[\e[35;1m\]\W:\[\e[37;1m\]~λ \[\e[0m\]"' >> /root/.bashrc
 
 ARG NB_USER=user
-ARG NB_UID=1000
+ARG NB_UID=1020
 ENV USER ${NB_USER}
 ENV NB_UID ${NB_UID}
 ENV HOME /home/${NB_USER}

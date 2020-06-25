@@ -30,13 +30,7 @@ RUN apt-get update && apt-get install -y \
     echo 'export PS1="\[\e[35;1m\]\W:\[\e[37;1m\]~λ \[\e[0m\]"' >> /root/.bashrc
 ENV USER="drylab"
 
-# FORTRAN Hack
-RUN wget 'http://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/x86_64/RPMS.classic//libgfortran3-6.3.1-alt5.x86_64.rpm' && alien -i libgfortran3-6.3.1-alt5.x86_64.rpm
-ENV LD_LIBRARY_PATH="/usr/lib64/"
 
-#bedGraphBIgWig hack
-RUN ln -s /opt/conda/lib/libssl.so.1.1 /usr/lib64/libssl.so.1.0.0
-RUN ln -s /opt/conda/lib/libcrypto.so.1.1 /usr/lib64/libcrypto.so.1.0.0
 
 
 ENTRYPOINT ["/bin/bash", "-c"]

@@ -15,18 +15,21 @@ RUN apt-get update && apt-get install -y \
  alien \
  parallel \ 
  gawk \ 
+ samtools \
+ bwa \
+ default-jdk \
 htop && rm -rf /var/lib/apt/lists/*
 
 # Use the environment.yml to create the conda environment.
-ADD environment.yml /tmp/environment.yml
-WORKDIR /tmp
-RUN conda env create -f environment.yml -n drylab
+#ADD environment.yml /tmp/environment.yml
+#WORKDIR /tmp
+#RUN conda env create -f environment.yml -n dovetail
 
-RUN pip install cython jupyterlab
+RUN pip install cython jupyterlab cooler pairtools
 
 RUN apt-get update && apt-get install -y \
     vim && \
-    echo 'source activate drylab' >> /root/.bashrc && \
+    echo 'source activate base' >> /root/.bashrc && \
     echo 'export PS1="\[\e[35;1m\]\W:\[\e[37;1m\]~λ \[\e[0m\]"' >> /root/.bashrc
 
 ARG NB_USER=user_nb

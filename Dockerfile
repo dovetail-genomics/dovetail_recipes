@@ -22,7 +22,7 @@ htop && rm -rf /var/lib/apt/lists/*
 #WORKDIR /tmp
 #RUN conda env create -f environment.yml -n dovetail
 
-RUN pip install cython jupyterlab cooler pairtools
+RUN pip install scipy numpy cython jupyterlab cooler pairtools
 
 #RUN apt-get update && apt-get install -y \
     #    vim && \

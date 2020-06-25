@@ -10,14 +10,10 @@ RUN apt-get update && apt-get install -y \
  make \
  gcc \
  libpopt-dev \
- gfortran \
- imagemagick \
- alien \
  parallel \ 
  gawk \ 
  samtools \
  bwa \
- default-jdk \
  awscli \
 htop && rm -rf /var/lib/apt/lists/*
 
@@ -28,10 +24,10 @@ htop && rm -rf /var/lib/apt/lists/*
 
 RUN pip install cython jupyterlab cooler pairtools
 
-RUN apt-get update && apt-get install -y \
-    vim && \
-    echo 'source activate base' >> /root/.bashrc && \
-    echo 'export PS1="\[\e[35;1m\]\W:\[\e[37;1m\]~λ \[\e[0m\]"' >> /root/.bashrc
+#RUN apt-get update && apt-get install -y \
+    #    vim && \
+    #echo 'source activate base' >> /root/.bashrc && \
+    # echo 'export PS1="\[\e[35;1m\]\W:\[\e[37;1m\]~λ \[\e[0m\]"' >> /root/.bashrc
 
 ARG NB_USER=user_nb
 ARG NB_UID=100

@@ -48,5 +48,5 @@ RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
 WORKDIR ${HOME}
 
-SHELL ["/bin/bash", "-c"]
+ENV SHELL /bin/bash
 #CMD ["/bin/bash"]
